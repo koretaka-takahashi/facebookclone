@@ -25,6 +25,9 @@ gem 'bcrypt', '3.1.11'#テキスト通り記述したが行はここでいいの
 
 gem 'dotenv-rails'#これもここでいいのかは定かではない
 
+gem 'carrierwave'#これも
+gem 'mini_magick'#これも
+
 group :development, :test do
 
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
