@@ -24,7 +24,7 @@ class FeedsController < ApplicationController
   # POST /feeds
   # POST /feeds.json
   def create
-    @feed = Feed.new(feed_params)
+    @feed = current_user.feeds.build(feed_params)
 
     respond_to do |format|
       if @feed.save
@@ -35,6 +35,11 @@ class FeedsController < ApplicationController
         format.json { render json: @feed.errors, status: :unprocessable_entity }
       end
     end
+  end
+  
+  def confirm
+    @feed = current_user.feeds.build(feed_params)
+    render :new if @feed.invalid?
   end
 
   # PATCH/PUT /feeds/1
