@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Feeds</h1>
+<h1 class="bg-primary" >Feeds</h1>
 
-<table>
+<table class="container">
+  <div class="row">
   <thead>
     <tr>
-      <th>Image</th>
-      <th>Text</th>
-      <th>User</th>
+      <th class="col-xs-4">Image</th>
+      <th class="col-xs-4">Text</th>
+      <th class="col-xs-4">User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,14 +19,15 @@
         <td><%= feed.image %></td>
         <td><%= feed.text %></td>
         <td><%= feed.user.name %></td>
-        <td><%= link_to 'Show', feed %></td>
-        <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
-        <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', feed, class: 'btn btn-info' %></td>
+        <td><%= link_to 'Edit', edit_feed_path(feed), class: 'btn btn-info' %></td>
+        <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-info' %></td>
       </tr>
     <% end %>
   </tbody>
+  </div>
 </table>
 
 <br>
 
-<%= link_to 'New Feed', new_feed_path %>
+<%= link_to 'New Feed', new_feed_path, class: "btn btn-default" %>
