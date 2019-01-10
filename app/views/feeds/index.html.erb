@@ -16,7 +16,7 @@
   <tbody>
     <% @feeds.each do |feed| %>
       <tr>
-        <td class ="image"><%= image_tag feed.image.url %></td>
+        <td class ="image"><%= image_tag feed.image.url if feed.image.url %></td>
         <td><%= feed.text %></td>
         <td><%= feed.user.name %></td>
         <td><%= link_to 'Show', feed, class: 'btn btn-info' %></td>
