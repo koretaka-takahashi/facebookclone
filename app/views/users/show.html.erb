@@ -1,3 +1,5 @@
 <h1><%= @user.name %>のページ</h1>
 
 <p>メールアドレス: <%= @user.email %></p>
+
+<%= link_to 'New Feed', new_feed_path, class: "btn btn-default" %>

@@ -1,5 +1,9 @@
 class FeedsController < ApplicationController
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
+  
+  def root
+    redirect_to feeds_url
+  end  
 
   # GET /feeds
   # GET /feeds.json

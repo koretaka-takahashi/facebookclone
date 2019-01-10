@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/', to: 'feeds#root'
   resources :feeds
   resources :sessions, only: [:new, :create, :destroy]
   resources :tasks
