@@ -18,7 +18,7 @@
         <td><%= feed.text %></td>
         <td><%= feed.user.name %></td>
         <td><%= link_to 'Show', feed, class: 'btn btn-info' %></td>
-        <% if current_user && current_user.id == feed.user_id %>
+        <% if logged_in? && current_user.id == feed.user_id %>
           <td><%= link_to 'Edit', edit_feed_path(feed), class: 'btn btn-info' %></td>
           <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-info' %></td>
         <% end %>
@@ -29,5 +29,6 @@
 </table>
 
 <br>
-
-<%= link_to 'New Feed', new_feed_path, class: "btn btn-default" %>
+<% if logged_in? %>
+  <%= link_to 'New Feed', new_feed_path, class: "btn btn-default" %>
+<% end %>
