@@ -1,5 +1,6 @@
 class FeedsController < ApplicationController
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   
   def root
     redirect_to feeds_url
@@ -70,6 +71,7 @@ class FeedsController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
   def set_feed
@@ -79,5 +81,13 @@ class FeedsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
   def feed_params
     params.require(:feed).permit(:image, :image_cache, :text)
+  end
+  
+  def ensure_correct_user
+    @feed = Feed.find_by(id:params[:id])
+    if @feed.user_id != current_user.id
+      flash[:notice] = "権限がありません"
+      redirect_to("/feeds")
+    end
   end
 end
