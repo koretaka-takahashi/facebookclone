@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
   
+  private
+  
   def redirect_if_not_logged_in
     return if logged_in?
     flash[:notice] = "権限がありません"

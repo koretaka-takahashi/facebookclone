@@ -1,5 +1,5 @@
 class FeedsController < ApplicationController
-  before_action :redirect_if_not_logged_in, except: [:index, :show]
+  before_action :redirect_if_not_logged_in, except: [:index, :show, :root]
   before_action :check_correct_user, only: [:edit, :update, :destroy]
   
   def root
